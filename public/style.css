@@ -1,0 +1,119 @@
+.card{
+    height:90%;
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* border: 2px solid black;  */
+    flex-wrap: wrap;
+    margin:2rem;
+    border: none;
+}
+.panel{
+    height:400px;
+    width:300px;
+    margin:2rem 1rem 1rem 2rem;
+}
+.images{
+    height:200px;
+    width:300px;
+    border-radius: 5px;
+   
+}
+.images:hover{
+     opacity: 0.80;
+}
+.formstyle{
+    margin:0 auto;
+    height:600px;
+    width: 700px;
+    background-color: #F7F7F7;
+   border-radius: 5px;
+   box-shadow: 20px 20px 20px #F7F7F7;
+}
+form{
+    margin:1rem;
+    padding-top:20px;
+}
+.heading{
+    color:#FF5A5F;
+    width: 400px;
+    /* border:2px solid black; */
+    margin: 0 auto;
+    text-align: center;
+    font-size:40px;
+    /* align-items: center;
+    align-content: center; */
+}
+button{
+    background-color:#FF5A5F;
+    color: white;
+    padding: 10px 20px;
+    border:none;
+    border-radius:20px;
+   
+}
+.btn-outline-success{
+    background-color: #FF5A5F;
+    color:white
+}
+.btn-outline-success:hover{
+     background-color: #eb7478;
+}
+.navbar
+{
+    display: flex;
+    flex-wrap:wrap;
+    height: 100px;
+    padding: 0;
+  
+}
+.headsearch{
+    padding:0 2rem 1rem 0.25rem;
+    height: 50px;
+    width:700px;
+    display:flex;
+    flex-wrap: wrap;
+}
+.linkdetail {
+    text-decoration: none;
+    color:black;
+}
+.secnav{
+    margin-top: 0.2rem;
+    height:40px;
+    background-color: #F7F7F7;
+    padding-top: 0.44rem;  
+}  
+.secnav a{
+    text-decoration: none;
+    color:black;
+    margin:1rem;
+    /* border: 2px solid black; */
+}
+.stickpos{
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: 10px 20px 10px #F7F7F7;
+}
+.contentstyle {
+    margin:3rem;
+     box-shadow: 20px 20px 10px #F7F7F7;
+}
+.contentstyle button{
+    margin:1rem 1rem 2rem 1rem;
+}
+.editbtn button{
+    margin:0;
+    width:90px;
+    border-radius: 20px;
+}
+.editbtn form{
+    display: inline-block;
+}
+button:hover{
+    background-color: #f8343a;
+}
+.header{
+    margin-top:20px;
+}

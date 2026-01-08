@@ -1,0 +1,42 @@
+<% layout("layouts/heading.ejs") %>
+
+<br><br>
+
+<% for (let data of datas) { %>
+  <div class="contentstyle">
+    
+    <p><strong>Title:</strong> <%= data.title %></p>
+
+    <p><strong>Description:</strong> <%= data.description %></p>
+
+    <p>
+        &#8377;<%= data.price?.toLocaleString("en-IN") || "N/A" %>/night
+    </p>
+
+
+    <p><strong>Location:</strong> <%= data.location %></p>
+
+    <p><strong>Country:</strong> <%= data.country %></p>
+
+    <div class="editbtn">  
+      <form 
+        action="/listing/<%= data._id %>/del?_method=DELETE" 
+        method="post"
+        onsubmit="return confirm('Are you sure you want to delete?')"
+      >
+        <button type="submit">Delete</button>
+      </form>
+
+      <form action="/listing/<%= data._id %>/edit" method="get">
+        <button type="submit">Edit</button>
+      </form>
+    </div>
+
+  </div>
+<% } %>
+
+<script 
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+  crossorigin="anonymous">
+</script>

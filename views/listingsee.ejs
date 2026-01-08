@@ -1,0 +1,22 @@
+<% layout("layouts/heading.ejs") %>
+
+<div class="card">
+  <% for (let data of datas) { %>
+
+    <a href="/listing/<%= data._id %>" class="linkdetail">
+      <div class="panel">
+        <img src="<%= data.image?.url %>" alt="image not found" class="images" />
+
+        <p><%= data.title %></p>
+
+        <p>
+          &#8377;<%= data.price?.toLocaleString("en-IN") || "N/A" %>/night
+        </p>
+
+        <p><%= data.location %>, <%= data.country %></p>
+        <br>
+      </div>
+    </a>
+
+  <% } %>
+</div>

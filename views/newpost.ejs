@@ -1,0 +1,37 @@
+<%layout("layouts/heading.ejs")%>
+<body>
+    <div class="header"> 
+        <h1 class="heading" style="align-content: center;">New Post </h1>
+    </div>
+    <div class="formstyle">  
+    <form action="/listing/new" method="post" class="needs-validation" novalidate>
+        <label for="title" class="form-label row mb-3">Title</label>
+        <input type="text" placeholder="enter title" name="listing[title]" class="form-control mb-3" required>
+         <div class="invalid-feedback">Please choose valid Title.</div>
+        <label for="description" class="form-label row mb-3" >Description</label>
+        <textarea placeholder="enter description" name="listing[description]" cols="30" class="form-control mb-3" required></textarea>
+          <div class="invalid-feedback">Please choose valid Description.</div>
+        <label for="image" class="form-label row mb-3">Image</label>
+        <input type="text" placeholder="enter url" name="listing[image][url]"class="form-control mb-3" >
+        
+        <div class="row mb-3">
+             <div class="col-md-6">
+                <label for="price" class="form-label">Price</label>
+                <input  class="form-control mb-3" placeholder="Enter price" name="listing[price]" required>
+                <div class="invalid-feedback">Please choose valid price.</div>
+            </div>
+            <div class="col-md-6">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control mb-3" placeholder="Enter location" name="listing[location]" required>
+                  <div class="invalid-feedback">Please choose valid Location.</div>
+            </div>
+        </div>
+       <label for="country"class="mb-2 form-label">Country</label>
+            <input type="text" placeholder="enter country" name="listing[country]" class="form-control mb-3"required><br>
+         <button style="border-radius: 18px;">Submit</button>
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="/validation.js"></script>    
+</div>
+</body>
+</html>
