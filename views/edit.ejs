@@ -9,12 +9,11 @@
 
 </head>
 <body>
-  <div class="contentstyle ">
     <h1 class="heading" style="align-content: center;">Edit</h1>
-  </div>
+  
     <div class="formstyle">  
          <% for(let data of datas){ %> 
-    <form action="/listing/<%=data._id%>/edit?_method=PATCH" method="post" class="needs-validation" novalidate>
+    <form action="/listing/<%=data._id%>/edit?_method=PATCH" method="post" class="editbtn needs-validation" novalidate>
         <label for="title" class="form-label row mb-3" >Title</label>
         <input type="text" placeholder="enter title" name="listing[title]" class="form-control mb-3" value="<%=data.title%>"required>
         <div class="invalid-feedback">Please choose valid Title.</div>
@@ -41,9 +40,10 @@
        <label for="country"class="mb-2 form-label" >Country</label>
             <input type="text" placeholder="enter country" name="listing[country]" class="form-control mb-3" value="<%=data.country%>" required><br>
           <div class="invalid-feedback">Please choose country.</div>
-            <button>Submit</button>
+            <button >Submit</button>
     </form>
     </div>
+ 
    <%} %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="/validation.js"></script> 

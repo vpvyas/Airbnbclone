@@ -97,12 +97,14 @@ button{
     box-shadow: 10px 20px 10px #F7F7F7;
 }
 .contentstyle {
-    height: 630px;
+    height: 40rem;
     width: 600px;
     margin:0 auto;
    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 .contents{
+    display: flex;
+    flex-wrap: wrap;
     margin:2rem;
 }
 .contentstyle button{
@@ -110,10 +112,12 @@ button{
 }
 .editbtn button{
     margin:0;
-    width:90px;
-    border-radius: 20px;
+    width:80px;
+    padding: 0.5rem;
+    border-radius: 15px;
 }
 .editbtn form{
+  
     display: inline-block;
 }
 button:hover{
