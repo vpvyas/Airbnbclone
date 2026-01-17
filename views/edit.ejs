@@ -9,10 +9,10 @@
 
 </head>
 <body>
-  <div class="header">
+  <div class="contentstyle ">
     <h1 class="heading" style="align-content: center;">Edit</h1>
   </div>
-    <div class="formstyle" >  
+    <div class="formstyle">  
          <% for(let data of datas){ %> 
     <form action="/listing/<%=data._id%>/edit?_method=PATCH" method="post" class="needs-validation" novalidate>
         <label for="title" class="form-label row mb-3" >Title</label>

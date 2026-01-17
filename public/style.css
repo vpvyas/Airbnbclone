@@ -27,8 +27,8 @@
     height:600px;
     width: 700px;
     background-color: #F7F7F7;
-   border-radius: 5px;
-   box-shadow: 20px 20px 20px #F7F7F7;
+    border-radius: 5px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 form{
     margin:1rem;
@@ -97,10 +97,13 @@ button{
     box-shadow: 10px 20px 10px #F7F7F7;
 }
 .contentstyle {
-    height: 650px;
+    height: 630px;
     width: 600px;
     margin:0 auto;
-     box-shadow: 20px 20px 10px #F7F7F7;
+   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+.contents{
+    margin:2rem;
 }
 .contentstyle button{
     margin:1rem 1rem 2rem 1rem;

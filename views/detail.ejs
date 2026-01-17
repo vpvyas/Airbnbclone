@@ -4,8 +4,8 @@
 
 <% for (let data of datas) { %>
   <div class="contentstyle">
-    
-    <p><strong>Title:</strong> <%= data.title %></p>
+    <div class="contents">
+    <h3><%= data.title %></h3>
     <img src="<%=data.image.url%>" style="width:450px; height:300px; border-radius: 10px; margin-bottom: 10px;">
     <p><strong>Description:</strong> <%= data.description %></p>
 
@@ -13,11 +13,9 @@
         &#8377;<%= data.price?.toLocaleString("en-IN") || "N/A" %>/night
     </p>
 
-
     <p><strong>Location:</strong> <%= data.location %></p>
 
     <p><strong>Country:</strong> <%= data.country %></p>
-
     <div class="editbtn">  
       <form 
         action="/listing/<%= data._id %>/del?_method=DELETE" 
@@ -31,7 +29,7 @@
         <button type="submit">Edit</button>
       </form>
     </div>
-
+</div>
   </div>
 <% } %>
 
