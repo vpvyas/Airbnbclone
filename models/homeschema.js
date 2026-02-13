@@ -21,6 +21,7 @@ let homeschema=new mongoose.Schema({
     country:{
         type:String
     }
+   
 });
 let Listscollection=mongoose.model("Listscollection",homeschema);
 module.exports=Listscollection;

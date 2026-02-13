@@ -1,32 +1,29 @@
 <% layout("layouts/heading.ejs") %>
 
 <br><br>
-
-<% for (let data of datas) { %>
   <div class="contentstyle">
     <div class="contents">
-      <h3 class="header"><%= data.title %></h3>
-      <img src="<%=data.image.url%>" style="width:450px; height:300px; border-radius: 10px; margin-bottom: 10px;">
-      <p><strong>Description:</strong> <%= data.description %></p>
+      <h3 class="header"><%= datas.title %></h3>
+      <img src="<%=datas.image.url%>" style="width:450px; height:300px; border-radius: 10px; margin-bottom: 10px;">
+      <p><strong>Description:</strong> <%= datas.description %></p>
       <p>
-       <strong>Price</strong> &#8377;<%= data.price?.toLocaleString("en-IN") || "N/A" %>/night
+       <strong>Price</strong> &#8377;<%= datas.price?.toLocaleString("en-IN") || "N/A" %>/night
       </p>&nbsp;
-      <p><strong>Location:</strong> <%= data.location %></p>&nbsp;
-      <p><strong>Country:</strong> <%= data.country %></p>
+      <p><strong>Location:</strong> <%= datas.location %></p>&nbsp;
+      <p><strong>Country:</strong> <%= datas.country %></p>
       <div class="editbtn">  
         <form 
-          action="/listing/<%= data._id %>/del?_method=DELETE" 
+          action="/listing/<%= datas._id %>/del?_method=DELETE" 
           method="post"
           onsubmit="return confirm('Are you sure you want to delete?')">
           <button type="submit">Delete</button>
         </form>
-        <form action="/listing/<%= data._id %>/edit" method="get">
+        <form action="/listing/<%= datas._id %>/edit" method="get">
         <button type="submit">Edit</button>
         </form>
     </div>
   </div>
 </div>
-<% } %>
 
 <script 
   src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"

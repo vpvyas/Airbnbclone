@@ -7,6 +7,20 @@ const methodOverride = require('method-override');
 const Listscollection = require("./models/homeschema");
 const ejsMate=require("ejs-mate");
 let app=express();
+const session=require("express-session")
+const flash=require("connect-flash");
+const sessionOption={
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie:{
+        maxAge:7*24*3600*1000,
+        expires:7*24*3600*1000,
+        httpOnly:true
+    }
+}
+app.use(session(sessionOption));
+app.use(flash());
 app.listen(8080,(req,res)=>{
     console.log("server initated ");
 })
@@ -24,6 +38,11 @@ main().then(()=>{
     console.log("connection established..");
 }).catch((err)=>{
     console.log(err);
+})
+app.use((req,res,next)=>{
+    res.locals.msg=req.flash("sucess");
+    // res.locals.err=req.flash("error")
+    next();
 })
 app.get("/listing",async(req,res)=>{
     //res.send("hhii this is listed of homes");
@@ -59,7 +78,8 @@ app.post("/listing/new",wrapAsync(async(req,res,next)=>{
 /*detailed panel */
 app.get("/listing/:id",wrapAsync(async(req,res)=>{
     let {id}=req.params;
-    let datas=await Listscollection.find({_id:id});
+    let datas = await Listscollection.findById(id);
+    console.log(datas)
     res.render("detail.ejs",{datas});
 }))
 //delete
@@ -67,6 +87,7 @@ app.delete("/listing/:id/del",wrapAsync(async(req,res)=>{
     let {id}=req.params;
     let del=await Listscollection.findByIdAndDelete(id);
     console.log(del);
+    req.flash("sucess","Deleted sucessfully");
     res.redirect("/listing");
 }))
 /*edit the data */
@@ -75,13 +96,15 @@ app.patch("/listing/:id/edit",wrapAsync(async(req,res)=>{
      let listing=req.body.listing;
      let datas=await Listscollection.findByIdAndUpdate(id,listing);
      console.log(datas);
+     req.flash("sucess","update  sucessfully");
      res.redirect("/listing");
 }))
 app.get("/listing/:id/edit",wrapAsync(async(req,res)=>{
      let {id}=req.params;
-     let datas=await Listscollection.find({_id:id});
+     let datas = await Listscollection.findById(id);
      res.render("edit.ejs",{datas});
 }))
+
 app.use((err,req,res,next)=>{
     let {status=500,message='something went wrong'}=err;
     res.render("err.ejs",{message});
