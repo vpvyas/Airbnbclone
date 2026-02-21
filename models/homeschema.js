@@ -20,7 +20,13 @@ let homeschema=new mongoose.Schema({
     },
     country:{
         type:String
+    },
+   Reviews: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Review"
     }
+  ]
    
 });
 let Listscollection=mongoose.model("Listscollection",homeschema);

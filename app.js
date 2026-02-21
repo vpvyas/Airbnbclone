@@ -5,6 +5,8 @@ let ExpressError=require("./utils/ExpressError.js")
 let wrapAsync=require("./utils/script.js");
 const methodOverride = require('method-override');
 const Listscollection = require("./models/homeschema");
+const Reviews = require("./models/reviews.js");
+
 const ejsMate=require("ejs-mate");
 let app=express();
 const session=require("express-session")
@@ -78,7 +80,7 @@ app.post("/listing/new",wrapAsync(async(req,res,next)=>{
 /*detailed panel */
 app.get("/listing/:id",wrapAsync(async(req,res)=>{
     let {id}=req.params;
-    let datas = await Listscollection.findById(id);
+    let datas = await Listscollection.findById(id).populate("Reviews");
     console.log(datas)
     res.render("detail.ejs",{datas});
 }))
@@ -104,6 +106,13 @@ app.get("/listing/:id/edit",wrapAsync(async(req,res)=>{
      let datas = await Listscollection.findById(id);
      res.render("edit.ejs",{datas});
 }))
+/*Reviews List */
+app.post("/listing/:id/review",async(req,res)=>{
+    let {id}=req.params;
+    let listing=await Listscollection.findById(id);
+    let newReview=new Reviews(listing.Reviews);
+    console.log(newReview)
+})
 
 app.use((err,req,res,next)=>{
     let {status=500,message='something went wrong'}=err;
