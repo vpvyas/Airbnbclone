@@ -6,10 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-        <% if(msg && msg.length){%>
+        <% if(success && success.length){%>
             <div class="alert alert-success col-6 offset-3 alert-dismissible fade show" role="alert">
-         <%= msg %>
-        <button type="button" 
+         <%= success %>
+                <button type="button" 
+                class="btn-close" 
+                data-bs-dismiss="alert"
+               >
+        </button>
+        </div>
+        <%}%>
+        <% if(error && error.length){%>
+            <div class="alert alert-danger col-6 offset-3 alert-dismissible fade show" role="alert">
+         <%= error %>
+                <button type="button" 
                 class="btn-close" 
                 data-bs-dismiss="alert"
                >

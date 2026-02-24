@@ -1,16 +1,16 @@
-let mongoose=require("mongoose");
-let homeschema=new mongoose.Schema({
+const mongoose = require("mongoose");
+
+const reviewSchema = new mongoose.Schema({
     message: {
-        type:String
+        type: String,
+        required: true,
     },
-    rating:{
-        type:Number,
-    },
-    createdAt: {
-        type:Date,
-        default:Date.now()
+    rating: {
+        type: Number,
+        min: 1,
+        max: 5,
+        required: true,
     }
+}, { timestamps: true });
 
-})
-
-module.exports=mongoose.model("Review",homeschema);
+module.exports = mongoose.model("Review", reviewSchema);

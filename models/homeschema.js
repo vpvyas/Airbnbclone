@@ -1,4 +1,5 @@
 let mongoose=require("mongoose");
+let Review=require("./reviews.js");
 let homeschema=new mongoose.Schema({
     title:{
         type:String,
@@ -28,6 +29,16 @@ let homeschema=new mongoose.Schema({
     }
   ]
    
+});
+/*see there are two type of middle ware pre and post middleware */
+homeschema.post("findOneAndDelete", async (listing) => {
+    
+    console.log(listing.Reviews);
+    if (listing) {
+        await Review.deleteMany({
+            _id: { $in: listing.Reviews }
+        });
+    }
 });
 let Listscollection=mongoose.model("Listscollection",homeschema);
 module.exports=Listscollection;
